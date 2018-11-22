@@ -1,3 +1,34 @@
+About the fork
+==============
+
+This is a fork of CRUX Linux pkgutils
+<https://crux.nu/gitweb/?p=tools/pkgutils.git>.
+
+I created this fork to allow the local package installation (e.g. in a
+user's home subdirectory like $HOME/local, which is the default now)
+and the operation as a non-root user (though using fakeroot for extra
+cleanliness won't hurt).  The documentation was not updated yet and
+there may exist some unhandled corner cases.  Notably, the package
+signing doesn't work but MD5 which works should be sufficient for
+basic usage.
+
+Installation
+------------
+
+1. Run "make PREFIX=$HOME/local install" to install pkgutils without
+packaging it (as we don't have pkgutils installed yet to package it
+with).
+2. Run "./post-install" to initilize the package database.
+3. Run "fakeroot pkgmk -f" to install pkgutils as a package,
+overwriting the version installed manually in step 1.
+
+Updating pkgutils consists on just running "fakeroot pkgmk -u", there
+is no need to perform the steps above more than once.
+
+
+Original README
+===============
+
 
               pkgutils - Package Management Utilities
 
