@@ -65,8 +65,8 @@ void pkgadd::run(int argc, char** argv)
 	//
 	// Check UID
 	//
-	if (getuid())
-		throw runtime_error("only root can install/upgrade packages");
+	// if (getuid())
+	// 	throw runtime_error("only root can install/upgrade packages");
 
 	//
 	// Install/upgrade package

@@ -21,20 +21,21 @@
 #
 
 DESTDIR =
-BINDIR = /usr/bin
-MANDIR = /usr/share/man
-ETCDIR = /etc
+PREFIX = $(HOME)/local
+BINDIR = $(PREFIX)/bin
+MANDIR = $(PREFIX)/share/man
+ETCDIR = $(PREFIX)/etc
 
 VERSION = 5.40.7
 NAME = pkgutils-$(VERSION)
 
 CXXFLAGS += -DNDEBUG
 CXXFLAGS += -O2 -Wall -pedantic -D_GNU_SOURCE -DVERSION=\"$(VERSION)\" \
-	    -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64
+	    -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -DPKGROOT=\"$(PREFIX)\"
 
-LIBARCHIVELIBS := $(shell pkg-config --libs --static libarchive)
+LIBARCHIVELIBS := $(shell pkg-config --libs libarchive)
 
-LDFLAGS += -static $(LIBARCHIVELIBS)
+LDFLAGS += $(LIBARCHIVELIBS)
 
 OBJECTS = main.o pkgutil.o pkgadd.o pkgrm.o pkginfo.o
 
@@ -57,7 +58,8 @@ mantxt: man $(MANPAGES:=.txt)
 	nroff -mandoc -c $< | col -bx > $@
 
 %: %.in
-	sed -e "s/#VERSION#/$(VERSION)/" $< > $@
+	sed -e "s/#VERSION#/$(VERSION)/" \
+	    -e "s,#PKGROOT#,$(PREFIX)," $< > $@
 
 .depend:
 	$(CXX) $(CXXFLAGS) -MM $(OBJECTS:.o=.cc) > .depend

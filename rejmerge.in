@@ -237,10 +237,10 @@ files_regular() {
 main() {
 	parse_options "$@"
 
-	if [ "$UID" != "0" ]; then
-		echo "$REJMERGE_COMMAND: only root can merge rejected files"
-		exit 1
-	fi
+	# if [ "$UID" != "0" ]; then
+	# 	echo "$REJMERGE_COMMAND: only root can merge rejected files"
+	# 	exit 1
+	# fi
 
 	# Read configuration
 	if [ -f "$REJMERGE_CONF" ]; then
@@ -306,8 +306,8 @@ export LC_ALL=POSIX
 readonly REJMERGE_VERSION="#VERSION#"
 readonly REJMERGE_COMMAND="${0##*/}"
 REJMERGE_ROOT=""
-REJMERGE_CONF="/etc/rejmerge.conf"
-REJECTED_DIR="/var/lib/pkg/rejected"
+REJMERGE_CONF="#PKGROOT#/etc/rejmerge.conf"
+REJECTED_DIR="#PKGROOT#/var/lib/pkg/rejected"
 EDITOR=${EDITOR:-vi}
 TMPFILE=$(mktemp) || exit 1
 

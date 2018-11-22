@@ -1,0 +1,6 @@
+#!/bin/bash
+set -o errexit -o nounset -o pipefail -o xtrace
+
+PREFIX=$HOME/local
+mkdir -p $PREFIX/var/lib/pkg
+touch $PREFIX/var/lib/pkg/db

@@ -1,0 +1,15 @@
+name=pkgutils
+version=$(git describe --tags | sed -e "s/^pkgutils-//")
+release=1
+source=(pkgutils.tar.gz)
+
+git ls-files | xargs tar zvcf pkgutils.tar.gz --transform 's,^,pkgutils/,'
+
+PKGMK_IGNORE_MD5SUM="yes"
+PKGMK_IGNORE_SIGNATURE="yes"
+
+build() {
+    cd $name
+    make PREFIX=$HOME/local
+    make PREFIX=$HOME/local DESTDIR=$PKG install
+}

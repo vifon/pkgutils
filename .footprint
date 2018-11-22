@@ -1,0 +1,23 @@
+drwxr-xr-x	root/root	home/
+drwxr-xr-x	root/root	home/vifon/
+drwxr-xr-x	root/root	home/vifon/local/
+drwxr-xr-x	root/root	home/vifon/local/bin/
+-rwxr-xr-x	root/root	home/vifon/local/bin/pkgadd
+lrwxrwxrwx	root/root	home/vifon/local/bin/pkginfo -> pkgadd
+-rwxr-xr-x	root/root	home/vifon/local/bin/pkgmk
+lrwxrwxrwx	root/root	home/vifon/local/bin/pkgrm -> pkgadd
+-rwxr-xr-x	root/root	home/vifon/local/bin/rejmerge
+drwxr-xr-x	root/root	home/vifon/local/etc/
+-rw-r--r--	root/root	home/vifon/local/etc/pkgadd.conf
+-rw-r--r--	root/root	home/vifon/local/etc/pkgmk.conf
+-rw-r--r--	root/root	home/vifon/local/etc/rejmerge.conf
+drwxr-xr-x	root/root	home/vifon/local/share/
+drwxr-xr-x	root/root	home/vifon/local/share/man/
+drwxr-xr-x	root/root	home/vifon/local/share/man/man5/
+-rw-r--r--	root/root	home/vifon/local/share/man/man5/pkgmk.conf.5.gz
+drwxr-xr-x	root/root	home/vifon/local/share/man/man8/
+-rw-r--r--	root/root	home/vifon/local/share/man/man8/pkgadd.8.gz
+-rw-r--r--	root/root	home/vifon/local/share/man/man8/pkginfo.8.gz
+-rw-r--r--	root/root	home/vifon/local/share/man/man8/pkgmk.8.gz
+-rw-r--r--	root/root	home/vifon/local/share/man/man8/pkgrm.8.gz
+-rw-r--r--	root/root	home/vifon/local/share/man/man8/rejmerge.8.gz

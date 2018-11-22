@@ -34,11 +34,11 @@
 #include <dirent.h>
 
 #define PKG_EXT         ".pkg.tar."
-#define PKG_DIR         "var/lib/pkg"
-#define PKG_DB          "var/lib/pkg/db"
-#define PKG_REJECTED    "var/lib/pkg/rejected"
+#define PKG_DIR         PKGROOT"/var/lib/pkg"
+#define PKG_DB          PKGROOT"/var/lib/pkg/db"
+#define PKG_REJECTED    PKGROOT"/var/lib/pkg/rejected"
 #define VERSION_DELIM   '#'
-#define LDCONFIG        "/sbin/ldconfig"
+#define LDCONFIG        "/bin/true"
 #define LDCONFIG_CONF   "/etc/ld.so.conf"
 
 using namespace std;

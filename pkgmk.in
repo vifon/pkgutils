@@ -527,9 +527,9 @@ build_package() {
 	check_file "$TARGET"
 	make_work_dir
 
-	if [ "$UID" != "0" ]; then
-		warning "Packages should be built as root."
-	fi
+	# if [ "$UID" != "0" ]; then
+	# 	warning "Packages should be built as root."
+	# fi
 
 	info "Building '$TARGET'."
 
@@ -908,7 +908,7 @@ readonly PKGMK_VERSION="#VERSION#"
 readonly PKGMK_COMMAND="$0"
 readonly PKGMK_ROOT="$PWD"
 
-PKGMK_CONFFILE="/etc/pkgmk.conf"
+PKGMK_CONFFILE="#PKGROOT#/etc/pkgmk.conf"
 PKGMK_PKGFILE="Pkgfile"
 PKGMK_FOOTPRINT=".footprint"
 PKGMK_MD5SUM=".md5sum"

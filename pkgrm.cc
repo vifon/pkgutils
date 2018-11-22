@@ -50,8 +50,8 @@ void pkgrm::run(int argc, char** argv)
 	//
 	// Check UID
 	//
-	if (getuid())
-		throw runtime_error("only root can remove packages");
+	// if (getuid())
+	// 	throw runtime_error("only root can remove packages");
 
 	//
 	// Remove package
