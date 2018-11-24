@@ -1,0 +1,29 @@
+#
+# /etc/pkgadd.conf: pkgadd(8) configuration
+#
+
+# Default rule (implicit)
+#UPGRADE        ^.*$                    YES
+
+UPGRADE          ^#PKGROOT#/etc/.*$                NO
+UPGRADE          ^#PKGROOT#/var/log/.*$            NO
+UPGRADE          ^#PKGROOT#/var/spool/\w*cron/.*$  NO
+UPGRADE          ^#PKGROOT#/var/run/utmp$          NO
+
+UPGRADE          ^#PKGROOT#/etc/ports/drivers/.*$  YES
+UPGRADE          ^#PKGROOT#/etc/X11/.*$            YES
+
+UPGRADE          ^#PKGROOT#/etc/rc.*$              YES
+UPGRADE          ^#PKGROOT#/etc/rc\.local$         NO
+UPGRADE          ^#PKGROOT#/etc/rc\.modules$       NO
+UPGRADE          ^#PKGROOT#/etc/rc\.conf$          NO
+UPGRADE          ^#PKGROOT#/etc/rc\.d/net$         NO
+UPGRADE          ^#PKGROOT#/etc/rc\.d/wlan$        NO
+
+UPGRADE          ^#PKGROOT#/etc/udev/rules.d/.*$   YES
+UPGRADE          ^#PKGROOT#/etc/udev/rules.d/1.*$  NO
+UPGRADE          ^#PKGROOT#/etc/udev/hwdb.d/.*$    YES
+UPGRADE          ^#PKGROOT#/etc/udev/hwdb.bin$     YES
+
+UPGRADE          ^#PKGROOT#/etc/ssl/cert.pem$      YES
+# End of file

@@ -41,7 +41,7 @@ OBJECTS = main.o pkgutil.o pkgadd.o pkgrm.o pkginfo.o
 
 MANPAGES = pkgadd.8 pkgrm.8 pkginfo.8 pkgmk.8 rejmerge.8 pkgmk.conf.5
 
-all: pkgadd pkgmk rejmerge man
+all: pkgadd pkgadd.conf pkgmk rejmerge man
 
 pkgadd: .depend $(OBJECTS)
 	$(CXX) $(OBJECTS) -o $@ $(LDFLAGS)
@@ -49,6 +49,9 @@ pkgadd: .depend $(OBJECTS)
 pkgmk: pkgmk.in
 
 rejmerge: rejmerge.in
+
+pkgadd.conf: pkgadd.conf.in
+	sed -e "s,#PKGROOT#,$(PREFIX:/%=%)," $< > $@
 
 man: $(MANPAGES)
 
@@ -100,6 +103,6 @@ clean:
 	rm -f $(MANPAGES:=.txt)
 
 distclean: clean
-	rm -f pkgadd pkginfo pkgrm pkgmk rejmerge
+	rm -f pkgadd pkgadd.conf pkginfo pkgrm pkgmk rejmerge
 
 # End of file

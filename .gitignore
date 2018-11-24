@@ -5,4 +5,4 @@
 pkgadd
 pkgmk
 rejmerge
-
+pkgadd.conf
