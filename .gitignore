@@ -6,3 +6,7 @@ pkgadd
 pkgmk
 rejmerge
 pkgadd.conf
+pkgutils.tar.gz
+.md5sum
+.footprint
+pkgutils#*.pkg.tar.gz
