@@ -18,9 +18,13 @@ Installation
 1. Run "make PREFIX=$HOME/local install" to install pkgutils without
 packaging it (as we don't have pkgutils installed yet to package it
 with).
-2. Run "./post-install" to initilize the package database.
+2. Run "./pre-install" to initilize the package database.
 3. Run "fakeroot pkgmk -f" to install pkgutils as a package,
 overwriting the version installed manually in step 1.
+
+Note regarding point 2: Yes, it is confusing whether it is a pre- or
+post-install script.  I consider it pre-install because the initial
+installation wasn't done with pkgutils.
 
 Updating pkgutils consists on just running "fakeroot pkgmk -u", there
 is no need to perform the steps above more than once.
