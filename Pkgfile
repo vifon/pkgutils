@@ -3,10 +3,15 @@ version=$(git describe --tags | sed -e "s/^pkgutils-//")
 release=1
 source=(pkgutils.tar.gz)
 
-git ls-files | xargs tar zvcf pkgutils.tar.gz --transform 's,^,pkgutils/,'
+# pkgutils considers it a local file so won't remove it for us on clean.
+if [ "$PKGMK_CLEAN" = yes ]; then
+    rm -fv pkgutils.tar.gz
+fi
 
-PKGMK_IGNORE_MD5SUM="yes"
-PKGMK_IGNORE_SIGNATURE="yes"
+# It semantically makes sense to consider generating the package "downloading".
+if [ "$PKGMK_DOWNLOAD" = yes ]; then
+    git ls-files | xargs tar zvcf pkgutils.tar.gz --transform 's,^,pkgutils/,'
+fi
 
 build() {
     cd $name
