@@ -8,9 +8,7 @@ I created this fork to allow the local package installation (e.g. in a
 user's home subdirectory like $HOME/local, which is the default now)
 and the operation as a non-root user (though using fakeroot for extra
 cleanliness won't hurt).  The documentation was not updated yet and
-there may exist some unhandled corner cases.  Notably, the package
-signing doesn't work but MD5 which works should be sufficient for
-basic usage.
+there may exist some unhandled corner cases.
 
 Installation
 ------------

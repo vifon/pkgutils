@@ -9,4 +9,5 @@ pkgadd.conf
 pkgutils.tar.gz
 .md5sum
 .footprint
+.signature
 pkgutils#*.pkg.tar.gz
