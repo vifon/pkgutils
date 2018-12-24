@@ -13,6 +13,10 @@ there may exist some unhandled corner cases.
 Installation
 ------------
 
+Currently it should suffice to run "./install.sh"
+or "env PREFIX=$HOME/something ./install.sh" which more
+or less does the things specified below:
+
 1. Run "make PREFIX=$HOME/local install" to install pkgutils without
 packaging it (as we don't have pkgutils installed yet to package it
 with).
