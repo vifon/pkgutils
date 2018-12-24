@@ -17,15 +17,26 @@ Installation
 packaging it (as we don't have pkgutils installed yet to package it
 with).
 2. Run "./pre-install" to initilize the package database.
-3. Run "fakeroot pkgmk -f" to install pkgutils as a package,
-overwriting the version installed manually in step 1.
+3. Add the upstream repository to your Git clone as we need the tags from it:
+       git remote add upstream git://crux.nu/tools/pkgutils.git
+   ...and then fetch from it:
+       git fetch upstream
+4. Run "fakeroot pkgmk -d && pkgadd -f pkgutils#SOME_VERSION.pkg.tar.gz"
+to install pkgutils as a package, overwriting the version installed
+manually in step 1.
 
 Note regarding point 2: Yes, it is confusing whether it is a pre- or
 post-install script.  I consider it pre-install because the initial
 installation wasn't done with pkgutils.
 
-Updating pkgutils consists on just running "fakeroot pkgmk -u", there
+Updating pkgutils consists on just running "fakeroot pkgmk -d -u", there
 is no need to perform the steps above more than once.
+
+Note that the -d option of the pkgutils package works in an unusual
+way as it doesn't download the archive but creates it on the fly.
+This causes the need to update/ignore the MD5 sums quite frequently
+after any introduced changes.  Expect to run "pkgmk -um" often for
+this package and don't freak out, it is the expected behavior.
 
 
 Original README
