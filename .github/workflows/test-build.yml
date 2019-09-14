@@ -21,3 +21,5 @@ jobs:
       run: sudo env PREFIX=/usr/local ./pre-install
     - name: Install the proper pkgutils package
       run: sudo pkgadd -f pkgutils#9999-1.pkg.tar.gz
+    - name: Verify pkgutils is installed
+      run: test "$(pkginfo -i)" = "pkgutils 9999-1"
