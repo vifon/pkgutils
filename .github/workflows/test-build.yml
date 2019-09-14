@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Install the dependencies
-      run: apt-get update -y && apt-get install -y libarchive-{dev,tools}
+      run: sudo apt-get update -y && sudo apt-get install -y libarchive-{dev,tools}
     - name: Build and install the stage-1 of pkgutils manually
       run: make PREFIX=/usr/local install
     - name: Add a dummy Git tag so that any version exists
