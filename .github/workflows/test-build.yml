@@ -11,15 +11,15 @@ jobs:
     - uses: actions/checkout@v1
     - name: Install the dependencies
       run: sudo apt-get update -y && sudo apt-get install -y libarchive-{dev,tools}
-    - name: Build and install the stage-1 of pkgutils manually
+    - name: Bootstrap pkgutils
       run: make PREFIX=/usr/local && sudo make PREFIX=/usr/local install
-    - name: Add a dummy Git tag so that pkgutils can figure out a version
+    - name: Define a dummy package version
       run: git tag pkgutils-9999
     - name: Build the pkgutils package
       run: fakeroot pkgmk -d
     - name: Initialize the package db
       run: sudo env PREFIX=/usr/local ./pre-install
-    - name: Install the proper pkgutils package
+    - name: Install the pkgutils package
       run: sudo pkgadd -f pkgutils#9999-1.pkg.tar.gz
     - name: Verify pkgutils is installed
       run: test "$(pkginfo -i)" = "pkgutils 9999-1"
