@@ -1,4 +1,4 @@
-name: Test building the pkgutils package with pkgutils itself
+name: Build & test
 
 on: [push]
 
