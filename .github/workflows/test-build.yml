@@ -12,12 +12,12 @@ jobs:
     - name: Install the dependencies
       run: sudo apt-get update -y && sudo apt-get install -y libarchive-{dev,tools}
     - name: Build and install the stage-1 of pkgutils manually
-      run: make PREFIX=/usr/local install
+      run: make PREFIX=/usr/local && sudo make PREFIX=/usr/local install
     - name: Add a dummy Git tag so that any version exists
       run: git tag pkgutils-9999
     - name: Build the pkgutils package
       run: fakeroot pkgmk -d
     - name: Initialize the package db
-      run: env PREFIX=/usr/local ./pre-install
+      run: sudo env PREFIX=/usr/local ./pre-install
     - name: Install the proper pkgutils package
-      run: pkgadd -f pkgutils#9999-1.pkg.tar.gz
+      run: sudo pkgadd -f pkgutils#9999-1.pkg.tar.gz
