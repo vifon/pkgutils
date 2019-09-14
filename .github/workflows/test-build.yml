@@ -6,10 +6,12 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    
+
     steps:
     - uses: actions/checkout@v1
-    - name: Install the stage-1 of pkgutils manually
+    - name: Install the dependencies
+      run: apt-get update -y && apt-get install -y libarchive-{dev,tools}
+    - name: Build and install the stage-1 of pkgutils manually
       run: make PREFIX=/usr/local install
     - name: Add a dummy Git tag so that any version exists
       run: git tag pkgutils-9999
